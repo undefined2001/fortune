@@ -33,9 +33,9 @@ function HandleFortuneBgColor(color) {
     fortuneMsg.style.backgroundColor = color; // Apply the selected color to the text
 }
 
-function HandleFortuneFontStyle(style)
-{
+function HandleFortuneFontStyle(style) {
     let fortuneMsg = document.querySelector("#fortune-msg-txt");
+    fortuneMsg.style.fontFamily = style;
     console.log(style);
 }
 
