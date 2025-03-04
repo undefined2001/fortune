@@ -10,16 +10,35 @@
 
 <body>
     <div class="fortune-div">
+        <div class="fortune-action-div">
+            <div>
+                <label class="action-label" for="fortune-bg">Background Color</label>
+                <input type="color" onchange="HandleFortuneBgColor(this.value)" name="" id="fortune-bg">
+            </div>
+            <div>
+                <label class="action-label" for="fortune-font-color">Font Color</label>
+                <input type="color" onchange="HandleFortuneMsgColor(this.value)" id="fortune-font-color">
+            </div>
+            <div>
+                <label class="action-label" for="fortune-border-color">Border Color</label>
+                <input type="color" onchange="HandleFortuneMsgBorderColor(this.value)" id="fortune-border-color" </div>
+            </div>
+            <div>
+                <label class="action-label" for="font-selector">Font Style</label>
+                <select id="font-selector" onchange="HandleFortuneFontStyle(this.value)">
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="'Lato', sans-serif">Lato</option>
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                </select>
+            </div>
+        </div>
         <div id="fortune-msg">
         </div>
+    </div>
 
-        <div class="fortune-action-div">
-            <input type="color" onchange="HandleFortuneBgColor(this.value)" name="" id="fortune-bg">
-            <input type="color" onchange="HandleFortuneMsgColor(this.value)" id="fortune-font-color">
-            <input type="color" onchange="HandleFortuneMsgBorderColor(this.value)" id="fortune-border-color" </div>
-        </div>
-
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

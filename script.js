@@ -33,6 +33,13 @@ function HandleFortuneBgColor(color) {
     fortuneMsg.style.backgroundColor = color; // Apply the selected color to the text
 }
 
+function HandleFortuneFontStyle(style)
+{
+    let fortuneMsg = document.querySelector("#fortune-msg-txt");
+    console.log(style);
+}
+
+
 function AddTaskToLocalStorage() {
     localStorage.setItem("1", "Hello, World Task");
 }
