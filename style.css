@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fortune-div {
+    margin: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    /* background-color: red; */
+}
+
+#fortune-msg {
+    height: 8vh;
+    width: 80vw;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fortune-msg-txt {
+    padding: 0px 20px;
+}
+
+.fortune-action-div {
+    padding-left: 10px;
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.fortune-action-div input {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 2px solid black;
+}
