@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,7 @@
 #fortune-msg {
     height: 8vh;
     width: 70vw;
-    
+
     border: 5px solid black;
     display: flex;
     justify-content: center;
@@ -38,13 +37,13 @@
     gap: 5px;
 }
 
-.fortune-action-div div{
+.fortune-action-div div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.fortune-action-div div label{
+.fortune-action-div div label {
     font-size: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -65,4 +64,72 @@
     margin: 0;
     font-size: 20px;
     border: 2px solid black;
+}
+
+/* Stopwatch part goes here */
+
+.stopwatch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stopwatch {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.start-btn {
+    background-color: rgb(87, 255, 87);
+}
+
+.stop-btn {
+    background-color: rgb(144, 144, 255);
+}
+
+.reset-btn {
+    background-color: rgb(247, 88, 88);
+}
+
+/*Todo lists part goes here*/
+
+.todo-list-div {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-input {
+    width: 50%;
+    height: 5vh;
+    font-size: 20px;
+}
+
+.todos {
+    list-style: none;
+    width: 50%;
+}
+
+.todo {
+    font-size: 30px;
+    background-color: rgb(161, 255, 161);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
 }

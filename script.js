@@ -40,10 +40,96 @@ function HandleFortuneFontStyle(style) {
 }
 
 
-function AddTaskToLocalStorage() {
-    localStorage.setItem("1", "Hello, World Task");
+
+let time = 0;
+let interval;
+
+function startTimer() {
+    if (!interval) {
+        interval = setInterval(() => {
+            if (time < 30) {
+                time += 3;
+                document.getElementById("display").innerText = time + "s";
+            } else {
+                clearInterval(interval);
+                interval = null;
+            }
+        }, 3000);
+    }
+}
+
+function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+}
+
+function resetTimer() {
+    stopTimer();
+    time = 0;
+    document.getElementById("display").innerText = "0s";
+}
+
+document.addEventListener("DOMContentLoaded", loadTasks)
+
+function loadTasks() {
+    let taskList = document.getElementsByClassName("todos")[0];
+    taskList.innerHTML = "";
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    console.log(tasks);
+    tasks.forEach((task, index) => {
+        let li = document.createElement("li");
+        li.classList.add("todo");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+        checkbox.addEventListener("change", () => toggleTask(index));
+
+        let span = document.createElement("span");
+        span.textContent = task.task;
+        if (task.completed) span.classList.add("completed");
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.onclick = () => deleteTask(index);
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+    })
+}
+
+function addTask() {
+
+    let currentKey = parseInt(localStorage.getItem("key"), 10) || 0;
+    let todoInput = document.getElementsByClassName("todo-input")[0];
+    let todoList = document.getElementsByClassName("todos")[0];
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    tasks.push({
+        key: currentKey,
+        task: todoInput.value,
+        completed: false
+    })
+    currentKey += 1;
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+    localStorage.setItem("key", currentKey);
+    todoList.innerHTML += `<li class="todo"> ${todoInput.value} </li><hr>`
+}
+
+function toggleTask(index) {
+    let tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks[index].completed = !tasks[index].completed;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    loadTasks();
+}
+
+function deleteTask(index) {
+    let tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    loadTasks();
 }
 
 
-AddTaskToLocalStorage();
 HandleFortuneMessages();
