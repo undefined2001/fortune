@@ -114,7 +114,7 @@ function addTask() {
     currentKey += 1;
     localStorage.setItem("tasks", JSON.stringify(tasks))
     localStorage.setItem("key", currentKey);
-    todoList.innerHTML += `<li class="todo"> ${todoInput.value} </li><hr>`
+    loadTasks();
 }
 
 function toggleTask(index) {
