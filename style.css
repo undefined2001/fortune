@@ -128,7 +128,10 @@ button {
     justify-content: space-between;
     padding-left: 10px;
 }
-
+.todo span{
+    justify-self:center;
+    align-self:center;
+}
 .completed {
     text-decoration: line-through;
     color: gray;
